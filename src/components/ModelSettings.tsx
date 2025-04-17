@@ -207,8 +207,9 @@ export const ModelSettings: React.FC<ModelSettingsProps> = ({
 
         <div className="settings-info">
           <p>
-            <strong>Note:</strong> Adjusting these parameters affects how the model generates responses.
-            Higher temperature produces more creative but potentially less factual responses.
+            <strong>Note:</strong> Adjusting these parameters affects how the model generates
+            responses. Higher temperature produces more creative but potentially less factual
+            responses.
           </p>
         </div>
 

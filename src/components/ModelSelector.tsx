@@ -21,9 +21,9 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
     return savedSettings
       ? JSON.parse(savedSettings)
       : {
-        temperature: 0.7,
-        numCores: 4,
-      };
+          temperature: 0.7,
+          numCores: 4,
+        };
   });
 
   // Load saved model on component mount
@@ -79,9 +79,7 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
       </div>
 
       {selectedModel && (
-        <div className="model-description">
-          {getModelDescription(selectedModel)}
-        </div>
+        <div className="model-description">{getModelDescription(selectedModel)}</div>
       )}
 
       <ModelSettings

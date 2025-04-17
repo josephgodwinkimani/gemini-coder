@@ -220,7 +220,7 @@ function App() {
               const newMessages = [...prevMessages];
               newMessages[newMessages.length - 1] = {
                 ...newMessages[newMessages.length - 1],
-                content: responseText
+                content: responseText,
               };
               return newMessages;
             });
@@ -242,7 +242,6 @@ function App() {
 
         // Save the chat history
         await saveChatHistory(updatedMessages.concat(assistantMessage), selectedModel);
-
       } else {
         // Non-streaming mode
         const messagesToSend = systemMessage
@@ -280,7 +279,8 @@ function App() {
       // Error message to the chat
       const errorMessage: Message = {
         role: 'assistant',
-        content: 'Sorry, there was an error generating a response. Please try again or check your API key.',
+        content:
+          'Sorry, there was an error generating a response. Please try again or check your API key.',
         timestamp: new Date().toISOString(),
       };
 
@@ -436,15 +436,18 @@ function App() {
             </a>
           </div>
           <div className="header-info">
-            <div className="info-line" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            <div
+              className="info-line"
+              style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}
+            >
               <Select
                 value={
                   chatHistories.length > 0
                     ? {
-                      value: currentChatId,
-                      label:
-                        chatHistories.find(ch => ch.id === currentChatId)?.title || 'New Chat',
-                    }
+                        value: currentChatId,
+                        label:
+                          chatHistories.find(ch => ch.id === currentChatId)?.title || 'New Chat',
+                      }
                     : null
                 }
                 onChange={handleChatSelect}
@@ -492,11 +495,7 @@ function App() {
                 />
                 <div className="streaming-toggle">
                   <label>
-                    <input
-                      type="checkbox"
-                      checked={isStreaming}
-                      onChange={handleToggleStreaming}
-                    />
+                    <input type="checkbox" checked={isStreaming} onChange={handleToggleStreaming} />
                     Streaming mode
                   </label>
                 </div>

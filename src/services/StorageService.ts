@@ -3,19 +3,13 @@ import { Message, ChatEntry } from '../types/types';
 class StorageService {
   private readonly STORAGE_KEY = 'gemini-chats';
 
-  async saveChat(
-    messages: Message[],
-    model: string,
-    chatEntry: ChatEntry
-  ): Promise<void> {
+  async saveChat(messages: Message[], model: string, chatEntry: ChatEntry): Promise<void> {
     try {
       // Load existing chats
       const existingChats = this.loadChatsFromStorage();
 
       // Filter out the chat with the same ID if it exists
-      const filteredChats = existingChats.filter(
-        chat => chat.id !== chatEntry.id
-      );
+      const filteredChats = existingChats.filter(chat => chat.id !== chatEntry.id);
 
       // Add the new/updated chat
       const updatedChats = [...filteredChats, chatEntry];
